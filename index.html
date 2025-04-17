@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download & Upload Speed Simulator</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/page-loader.css">
+  <script src="assets/page-loader.js" defer></script>
+</head>
+<body>
+
+  <!-- This is the loader for the page -->
+  <div class="pageloader">
+    <div class="circleloader">
+        <svg viewBox="25 25 50 50">
+          <circle r="20" cy="50" cx="50"></circle>
+        </svg>
+    </div>
+    <div class="pageloader-text">Download/Upload Simulator</div>
+</div>
+
+  <h1 class="title">Download/Upload Simulator</h1>
+  <div class="simulator-grid">
+    <div class="container">
+      <div class="label-title">Download</div>
+      <div class="input-group">
+        <label for="speed">Download Speed</label>
+        <input type="number" id="speed" step="0.01" min="0" placeholder="Enter download speed" />
+      </div>
+      <div class="input-group">
+        <label for="sizeUnit">File Size Unit</label>
+        <select id="sizeUnit">
+          <option value="GB">GB</option>
+          <option value="MB">MB</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="filesize">File Size</label>
+        <input type="number" id="filesize" step="0.01" min="0" placeholder="Size" />
+      </div>
+      <div class="input-group">
+        <label for="packetLoss">Packet Loss (%)</label>
+        <input type="number" id="packetLoss" step="0.01" min="0" max="100" placeholder="0.00" />
+      </div>
+      <div class="buttons">
+        <button id="startBtn">Start</button>
+        <button id="stopBtn" disabled>Stop</button>
+      </div>
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="status" id="status">0.00% - Speed: 0.00 MB/s - Transferred: 0.00 GB - Time Remaining: 00:00</div>
+    </div>
+
+    <div class="container">
+      <div class="label-title">Upload</div>
+      <div class="input-group">
+        <label for="uploadSpeed">Upload Speed</label>
+        <input type="number" id="uploadSpeed" step="0.01" min="0" placeholder="Enter upload speed" />
+      </div>
+      <div class="input-group">
+        <label for="uploadSizeUnit">File Size Unit</label>
+        <select id="uploadSizeUnit">
+          <option value="GB">GB</option>
+          <option value="MB">MB</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="uploadSize">File Size</label>
+        <input type="number" id="uploadSize" step="0.01" min="0" placeholder="Enter file size" />
+      </div>
+      <div class="input-group">
+        <label for="uploadPacketLoss">Packet Loss (%)</label>
+        <input type="number" id="uploadPacketLoss" step="0.01" min="0" max="100" placeholder="0.00" />
+      </div>
+      <div class="buttons">
+        <button id="uploadStartBtn">Start</button>
+        <button id="uploadStopBtn" disabled>Stop</button>
+      </div>
+      <div class="progress">
+        <div class="progress-bar" id="uploadProgressBar"></div>
+      </div>
+      <div class="status" id="uploadStatus">0.00% - Speed: 0.00 MB/s - Transferred: 0.00 GB - Time Remaining: 00:00</div>
+    </div>
+  </div>
+
+  <div class="description-section">
+    <div class="description-header">Simulator Description</div>
+    <h2>This simulator allows you to test and visualize download and upload speeds. You can enter your current internet speeds or simulate the speeds you might get when upgrading to a higher plan.
+      Please note that this is only a simulation and does not actually download or upload anything. The speeds displayed may not reflect your real-world speeds, but it gives you an idea of what you could potentially achieve based on the speeds you input.<br>
+    Don't know what your internet speeds are, you can check <a href="https://www.speedtest.net">here</a></h2>
+  </div>
+
+  <script src="assets/calculation.js"></script>
+</body>
+</html>
